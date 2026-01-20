@@ -8,13 +8,14 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-// Serve static files
-const staticPath = path.resolve(__dirname, "..", "dist", "public");
-app.use(express.static(staticPath));
+// Serve static files from public directory
+const publicPath = path.join(__dirname, "..", "public");
+app.use(express.static(publicPath));
 
 // Handle client-side routing - serve index.html for all routes
-app.get("*", (_req: any, res: any) => {
-  res.sendFile(path.join(staticPath, "index.html"));
+app.get("*", (_req: VercelRequest, res: VercelResponse) => {
+  res.setHeader("Content-Type", "text/html");
+  res.sendFile(path.join(publicPath, "index.html"));
 });
 
 export default app;
