@@ -3,7 +3,7 @@
 ## Context
 Creating a professional portfolio website for Ahmet Şengül, a geoinformation engineer with 20+ years of experience. The site must convey trust, professionalism, and warmth while appealing to employers and HR professionals. Design should be modern, corporate, with pastel colors and soft, flowing aesthetics.
 
----
+---aaaa
 
 <response>
 <probability>0.08</probability>

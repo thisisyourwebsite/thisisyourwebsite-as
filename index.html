@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmet Şengül - GIS Specialist & Survey Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #f8f9fb;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #5d6d7e;
+            --accent-primary: #7c9cbf;
+            --accent-secondary: #9fb8d1;
+            --accent-warm: #d4a5a5;
+            --accent-green: #a5c9b8;
+            --border-color: #e8eef4;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem 6rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-warm));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-content .intro {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .location {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            background: var(--card-bg);
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-md);
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.4s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02) rotate(-1deg);
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-warm));
+            border-radius: 10px;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .skill-card:nth-child(1) { animation-delay: 0.1s; }
+        .skill-card:nth-child(2) { animation-delay: 0.2s; }
+        .skill-card:nth-child(3) { animation-delay: 0.3s; }
+        .skill-card:nth-child(4) { animation-delay: 0.4s; }
+        .skill-card:nth-child(5) { animation-delay: 0.5s; }
+        .skill-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-primary);
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            padding: 0.4rem 0.9rem;
+            background: var(--primary-bg);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent-primary), var(--accent-warm));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0.5rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 3px solid var(--accent-primary);
+            box-shadow: 0 0 0 4px var(--primary-bg);
+        }
+
+        .timeline-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s ease;
+        }
+
+        .timeline-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(8px);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .timeline-card .company {
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .timeline-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-card li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .timeline-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+
+        .education-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: center;
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .education-card:nth-child(1) { animation-delay: 0.1s; }
+        .education-card:nth-child(2) { animation-delay: 0.2s; }
+
+        .education-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(8px);
+        }
+
+        .education-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-secondary));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .education-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .education-content .degree {
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-content .years {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .contact-card:nth-child(1) { animation-delay: 0.1s; }
+        .contact-card:nth-child(2) { animation-delay: 0.2s; }
+        .contact-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-primary);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-warm));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .contact-card a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent-warm);
+        }
+
+        .footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--primary-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent-primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .education-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .education-icon {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">AŞ</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <h1>Ahmet Şengül</h1>
+            <div class="subtitle">GIS Specialist & Survey Engineer</div>
+            <div class="location">📍 Munich, Bavaria, Germany</div>
+            <p class="intro">
+                Geoinformatics and Surveying Engineer with over 20 years of professional experience in GIS, navigation, mobile mapping, data visualization, surveying, 3D mapping, and LiDAR technologies. Proven ability to transform complex spatial datasets into accurate, actionable insights and decision-support products.
+            </p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+        <div class="hero-image">
+            <img src="photo.jpg" alt="Ahmet Şengül">
+        </div>
+    </section>
+
+    <section class="section" id="skills">
+        <div class="section-header">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <p class="section-subtitle">Core competencies and technical proficiencies</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">🗺️</div>
+                <h3>GIS & Mapping</h3>
+                <p>Spatial data management, cartographic visualization, and geospatial analysis</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">ArcGIS Pro</span>
+                    <span class="skill-tag">QGIS</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">📊</div>
+                <h3>Data Visualization</h3>
+                <p>Creating compelling visual representations of complex geospatial data</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">Tableau</span>
+                    <span class="skill-tag">Kepler GL</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🛰️</div>
+                <h3>LiDAR & 3D Mapping</h3>
+                <p>Point cloud processing, 3D modeling, and terrain analysis</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Point Cloud</span>
+                    <span class="skill-tag">3D Modeling</span>
+                    <span class="skill-tag">Surface Analysis</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🚗</div>
+                <h3>ADAS & HD Maps</h3>
+                <p>High-definition mapping for autonomous driving systems</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">HD Maps</span>
+                    <span class="skill-tag">ADAS</span>
+                    <span class="skill-tag">Mobile Mapping</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">📐</div>
+                <h3>Surveying</h3>
+                <p>Precision surveying, construction layout, and elevation control</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Total Station</span>
+                    <span class="skill-tag">GPS/GNSS</span>
+                    <span class="skill-tag">Leveling</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h3>Programming & Tools</h3>
+                <p>Software development and automation for geospatial workflows</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">FME</span>
+                    <span class="skill-tag">AutoCAD</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="experience">
+        <div class="section-header">
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">20+ years of expertise in geospatial technologies</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span class="timeline-date">Oct 2025 - Dec 2025</span>
+                    <h3>Surveying Engineer</h3>
+                    <span class="company">Joule Energy, Stuttgart / Germany</span>
+                    <ul>
+                        <li>Performed position and elevation staking for critical structures including turbine and generator foundations</li>
+                        <li>Conducted precise leveling with mm tolerance during equipment installation</li>
+                        <li>Managed elevation control of machine foundations and mounting plates</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span class="timeline-date">Jan 2025 - Apr 2025</span>
+                    <h3>Geoinformation Engineer</h3>
+                    <span class="company">BBA, Kassel / Germany</span>
+                    <ul>
+                        <li>Prepared and tested transition to QGIS 3.34, ensuring smooth operations</li>
+                        <li>Maintained existing tools including QGIS and PostgreSQL</li>
+                        <li>Created layout documentation using AutoCAD Map 3D 2022</li>
+                        <li>Provided project support for GIS and AutoCAD related issues</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span class="timeline-date">Mar 2023 - May 2024</span>
+                    <h3>Project Engineer</h3>
+                    <span class="company">3D Mapping Solutions, Munich / Germany</span>
+                    <ul>
+                        <li>Led surface modeling for autonomous driving ADAS projects with BMW, Volvo, Mercedes and Audi</li>
+                        <li>Performed homogenization of laser point clouds as basis for HD maps</li>
+                        <li>Extracted road geometry and objects as reference for Advanced Driver Assistance Systems testing</li>
+                        <li>Created high-fidelity maps as in-car reference for autonomous driving developments</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span class="timeline-date">Apr 2020 - Mar 2023</span>
+                    <h3>GIS / Software Support Specialist</h3>
+                    <span class="company">Istanbul Metropolitan Municipality, Istanbul / Turkey</span>
+                    <ul>
+                        <li>Created geographic analyses using ESRI platforms including ArcGIS Pro, Online, and Enterprise</li>
+                        <li>Automated repetitive workflows using ArcGIS Model Builder</li>
+                        <li>Conducted machine learning experiments for traffic density and air quality prediction</li>
+                        <li>Developed data visualization graphics using ArcGIS, Kepler GL, Power BI, and Tableau</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span class="timeline-date">Oct 2014 - Feb 2020</span>
+                    <h3>Planning Engineer / GIS Specialist</h3>
+                    <span class="company">TURKCELL, Istanbul / Turkey</span>
+                    <ul>
+                        <li>Managed site analyses, reports and services with ~$350K annual budget</li>
+                        <li>Led planning of fiber optic network infrastructure across 9 cities in Southern Turkey</li>
+                        <li>Created digital maps for sales, marketing and strategic initiatives</li>
+                        <li>Provided spatial information support for location-based services</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="education">
+        <div class="section-header">
+            <h2 class="section-title">Education</h2>
+            <p class="section-subtitle">Academic background and qualifications</p>
+        </div>
+        <div class="education-grid">
+            <div class="education-card">
+                <div class="education-icon">🎓</div>
+                <div class="education-content">
+                    <h3>Master of Science</h3>
+                    <div class="degree">Geodesy and Geoinformation Science</div>
+                    <div class="years">Istanbul Technical University & Technical University of Berlin (2007-2010)</div>
+                </div>
+            </div>
+
+            <div class="education-card">
+                <div class="education-icon">📚</div>
+                <div class="education-content">
+                    <h3>Bachelor of Science</h3>
+                    <div class="degree">Geodesy and Photogrammetry Engineering</div>
+                    <div class="years">Yildiz Technical University, Istanbul (2001-2005)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="section-header">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's discuss how I can help with your geospatial projects</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">📧</div>
+                <h3>Email</h3>
+                <a href="mailto:ahmetsengul@gmail.com">ahmetsengul@gmail.com</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">📱</div>
+                <h3>Phone</h3>
+                <a href="tel:+4917621762650">+49 176 21762650</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">💼</div>
+                <h3>LinkedIn</h3>
+                <a href="https://www.linkedin.com/in/ahmetsenguel" target="_blank">linkedin.com/in/ahmetsenguel</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ahmetsenguel" target="_blank" class="social-link">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="mailto:ahmetsengul@gmail.com" class="social-link">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+            </div>
+            <p>&copy; 2025 Ahmet Şengül. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
