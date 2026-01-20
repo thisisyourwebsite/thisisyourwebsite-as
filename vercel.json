@@ -1,8 +1,7 @@
 {
   "buildCommand": "npm run build",
-  "functions": {
-    "api/index.ts": {
-      "maxDuration": 10
-    }
-  }
+  "outputDirectory": "dist/public",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
