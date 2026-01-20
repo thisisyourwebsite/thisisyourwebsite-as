@@ -45,75 +45,75 @@
 }
 
 :root {
-  /* Warm Organic Modernism Palette */
-  --primary: oklch(0.85 0.08 25); /* Dusty rose */
-  --primary-foreground: oklch(0.98 0.01 0); /* Warm cream */
-  --sidebar-primary: oklch(0.82 0.07 25); /* Darker dusty rose */
-  --sidebar-primary-foreground: oklch(0.98 0.01 0);
-  --chart-1: oklch(0.85 0.08 25);
-  --chart-2: oklch(0.80 0.07 25);
-  --chart-3: oklch(0.75 0.06 25);
-  --chart-4: oklch(0.70 0.05 25);
-  --chart-5: oklch(0.65 0.04 25);
-  --radius: 1.5rem; /* Increased for organic feel */
-  --background: oklch(0.98 0.01 0); /* Warm cream */
-  --foreground: oklch(0.25 0.02 40); /* Warm charcoal */
-  --card: oklch(0.99 0.005 0); /* Very light cream */
-  --card-foreground: oklch(0.25 0.02 40);
-  --popover: oklch(0.99 0.005 0);
-  --popover-foreground: oklch(0.25 0.02 40);
-  --secondary: oklch(0.92 0.02 30); /* Light warm taupe */
-  --secondary-foreground: oklch(0.30 0.02 40);
-  --muted: oklch(0.88 0.015 30); /* Muted warm taupe */
-  --muted-foreground: oklch(0.50 0.02 40);
-  --accent: oklch(0.85 0.08 25); /* Dusty rose accent */
-  --accent-foreground: oklch(0.98 0.01 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.93 0.01 30); /* Subtle warm border */
-  --input: oklch(0.93 0.01 30);
-  --ring: oklch(0.85 0.08 25);
-  --sidebar: oklch(0.99 0.005 0);
-  --sidebar-foreground: oklch(0.25 0.02 40);
-  --sidebar-accent: oklch(0.85 0.08 25);
-  --sidebar-accent-foreground: oklch(0.98 0.01 0);
-  --sidebar-border: oklch(0.93 0.01 30);
-  --sidebar-ring: oklch(0.85 0.08 25);
+  /* Mercedes-inspired dark palette */
+  --primary: #0099cc;
+  --primary-foreground: #e8f6ff;
+  --sidebar-primary: #008ab7;
+  --sidebar-primary-foreground: #e8f6ff;
+  --chart-1: #0099cc;
+  --chart-2: #0fb0e3;
+  --chart-3: #34c5f0;
+  --chart-4: #65d7f7;
+  --chart-5: #a2e8ff;
+  --radius: 1.5rem;
+  --background: #0f1217;
+  --foreground: #eef2f5;
+  --card: #151a21;
+  --card-foreground: #eef2f5;
+  --popover: #151a21;
+  --popover-foreground: #eef2f5;
+  --secondary: #1e242d;
+  --secondary-foreground: #d8e0e7;
+  --muted: #1a2028;
+  --muted-foreground: #b8c0c8;
+  --accent: #0099cc;
+  --accent-foreground: #e8f6ff;
+  --destructive: #ff4d4f;
+  --destructive-foreground: #0b0d10;
+  --border: #1f2831;
+  --input: #1f2831;
+  --ring: #33b5e5;
+  --sidebar: #0f131a;
+  --sidebar-foreground: #eef2f5;
+  --sidebar-accent: #0099cc;
+  --sidebar-accent-foreground: #0b0d10;
+  --sidebar-border: #1c242e;
+  --sidebar-ring: #33b5e5;
 }
 
 .dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.85 0.005 65);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.85 0.005 65);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.85 0.005 65);
-  --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+  --primary: #0099cc;
+  --primary-foreground: #e8f6ff;
+  --sidebar-primary: #008ab7;
+  --sidebar-primary-foreground: #e8f6ff;
+  --background: #0b0e13;
+  --foreground: #e6ebf0;
+  --card: #111620;
+  --card-foreground: #e6ebf0;
+  --popover: #111620;
+  --popover-foreground: #e6ebf0;
+  --secondary: #1a2028;
+  --secondary-foreground: #d3dbe3;
+  --muted: #161c24;
+  --muted-foreground: #adb8c2;
+  --accent: #0099cc;
+  --accent-foreground: #e8f6ff;
+  --destructive: #ff4d4f;
+  --destructive-foreground: #0b0d10;
+  --border: #1a222c;
+  --input: #1a222c;
+  --ring: #33b5e5;
+  --chart-1: #0099cc;
+  --chart-2: #0fb0e3;
+  --chart-3: #34c5f0;
+  --chart-4: #65d7f7;
+  --chart-5: #a2e8ff;
+  --sidebar: #0c1017;
+  --sidebar-foreground: #e6ebf0;
+  --sidebar-accent: #0099cc;
+  --sidebar-accent-foreground: #0b0d10;
+  --sidebar-border: #16202a;
+  --sidebar-ring: #33b5e5;
 }
 
 @layer base {
@@ -177,17 +177,17 @@
     min-width: 0;
   }
 
-  /* Organic Modernism Styles */
+  /* Dark/tech helpers */
   .organic-rounded {
     border-radius: 1.5rem;
   }
 
   .soft-shadow {
-    box-shadow: 0 10px 30px rgba(212, 165, 160, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 153, 204, 0.2);
   }
 
   .warm-gradient {
-    background: linear-gradient(135deg, #FBF8F3 0%, #EDE9F6 100%);
+    background: linear-gradient(135deg, #0f131a 0%, #1c242e 100%);
   }
 
   @media (min-width: 640px) {
